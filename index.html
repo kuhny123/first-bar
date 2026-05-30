@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Bar — Санкт-Петербург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --dark: #0E0C0A;
+    --dark-2: #1A1712;
+    --dark-3: #252118;
+    --text: #F0EAE0;
+    --text-muted: #9A9080;
+    --border: rgba(201,169,110,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(14,12,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent;
+    border: 0.5px solid var(--gold);
+    color: var(--gold);
+    padding: 0.5rem 1.25rem;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 7rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 80%, rgba(201,169,110,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 20%, rgba(201,169,110,0.04) 0%, transparent 60%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,169,110,0.03) 80px, rgba(201,169,110,0.03) 81px);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 0.5px solid var(--border);
+    padding: 0.35rem 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-badge::before, .hero-badge::after {
+    content: '—';
+    opacity: 0.4;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 10vw, 8.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 0.9rem 2.5rem;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 0.5px solid rgba(240,234,224,0.2);
+    padding: 0.9rem 2.5rem;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeUp 0.8s 0.7s ease both;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .scroll-line {
+    width: 0.5px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* OFFER BANNER */
+  .offer-banner {
+    background: var(--dark-2);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .offer-banner strong { font-weight: 400; }
+
+  /* SECTION BASE */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .divider {
+    width: 40px;
+    height: 0.5px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .stat {
+    background: var(--dark-2);
+    padding: 1.75rem 1.5rem;
+    border: 0.5px solid var(--border);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* MENU */
+  .menu-section {
+    background: var(--dark-2);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .menu-section > section {
+    max-width: 1100px;
+  }
+
+  .menu-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+  }
+
+  .menu-item {
+    background: var(--dark-3);
+    padding: 1.5rem;
+    border: 0.5px solid var(--border);
+    transition: border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .menu-item:hover { border-color: rgba(201,169,110,0.4); }
+  .menu-item:hover::before { transform: scaleX(1); }
+
+  .menu-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .menu-price {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* FEATURES */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  .feature-name {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--text);
+  }
+
+  .feature-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--dark-2);
+    border-top: 0.5px solid var(--border);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+  .contact-block h3 {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block p, .contact-block a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+  }
+
+  .contact-block a:hover { color: var(--gold); }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.3rem 1.5rem;
+  }
+
+  .hours-grid .day {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hours-grid .time {
+    font-size: 0.75rem;
+    color: var(--text);
+    text-align: right;
+  }
+
+  .map-placeholder {
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 0;
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .map-pin {
+    width: 32px;
+    height: 32px;
+    border: 0.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  .map-address {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding: 0 2rem;
+    line-height: 1.8;
+  }
+
+  .map-link {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--gold);
+    padding-bottom: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  footer p {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+    .hero { padding: 6rem 1.5rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">First Bar</a>
+  <ul class="nav-links">
+    <li><a href="#about">О баре</a></li>
+    <li><a href="#menu">Меню</a></li>
+    <li><a href="#contact">Адрес</a></li>
+  </ul>
+  <a href="https://t.me/firstbar1" target="_blank" class="nav-cta">Забронировать</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-badge">Санкт-Петербург</div>
+  <h1 class="hero-title">First<br><em>Bar</em></h1>
+  <p class="hero-sub">Бар · Кальяны · Ресторан</p>
+  <div class="hero-actions">
+    <a href="https://t.me/firstbar1" target="_blank" class="btn-primary">Забронировать стол</a>
+    <a href="#menu" class="btn-outline">Смотреть меню</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<!-- OFFER -->
+<div class="offer-banner">
+  <strong>Скидка 20% на всё меню</strong> &nbsp;·&nbsp; Ежедневно до 18:00
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-label">О нас</span>
+      <h2 class="section-title">Место, где<br>приятно <em>бывать</em></h2>
+      <div class="divider"></div>
+      <p>First Bar — уютное заведение в Приморском районе Санкт-Петербурга. Стильный интерьер, внимательный персонал и атмосфера, в которой хочется оставаться подольше.</p>
+      <p>Авторские коктейли, насыщенные кальяны, итальянская и европейская кухня. Идеально для встречи с друзьями, романтического вечера или дня рождения.</p>
+      <a href="https://t.me/perviybarmodum" target="_blank" class="btn-outline" style="margin-top:1.5rem; display:inline-block;">Telegram-канал</a>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat">
+        <div class="stat-number">5.0</div>
+        <div class="stat-label">Рейтинг на картах</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">47</div>
+        <div class="stat-label">Оценок</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">20%</div>
+        <div class="stat-label">Скидка до 18:00</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">490₽</div>
+        <div class="stat-label">Пиво от</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<div class="menu-section">
+  <section id="menu">
+    <div class="menu-header reveal">
+      <div>
+        <span class="section-label">Меню</span>
+        <h2 class="section-title">Коктейли<br>& <em>Кухня</em></h2>
+      </div>
+      <a href="https://yandex.com/maps/org/first_bar/199489915910/menu/" target="_blank" class="btn-outline">Полное меню →</a>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Эротический шторм</div>
+        <div class="menu-price">690 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Пиковая дама</div>
+        <div class="menu-price">690 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Pornstar</div>
+        <div class="menu-price">690 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Барби</div>
+        <div class="menu-price">690 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Белая леди</div>
+        <div class="menu-price">590 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Коктейль</div>
+        <div class="menu-name">Виски Сауэр</div>
+        <div class="menu-price">590 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Напитки</div>
+        <div class="menu-name">Просекко</div>
+        <div class="menu-price">590 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Напитки</div>
+        <div class="menu-name">Авторский чай</div>
+        <div class="menu-price">490 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Напитки</div>
+        <div class="menu-name">Латте</div>
+        <div class="menu-price">340 ₽</div>
+      </div>
+      <div class="menu-item reveal">
+        <div class="menu-cat">Кухня</div>
+        <div class="menu-name">Борщ</div>
+        <div class="menu-price">570 ₽</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FEATURES -->
+<section>
+  <div class="reveal">
+    <span class="section-label">Удобства</span>
+    <h2 class="section-title">Всё для<br><em>комфорта</em></h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature reveal">
+      <div class="feature-icon">🍸</div>
+      <div class="feature-name">Авторские коктейли</div>
+      <div class="feature-desc">Собственные рецепты бара</div>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-icon">💨</div>
+      <div class="feature-name">Кальяны</div>
+      <div class="feature-desc">Насыщенный вкус и плотный дым</div>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-icon">🌿</div>
+      <div class="feature-name">Летняя терраса</div>
+      <div class="feature-desc">Открытая площадка в теплое время</div>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-icon">📺</div>
+      <div class="feature-name">Спортивные трансляции</div>
+      <div class="feature-desc">Смотрим матчи вместе</div>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-icon">🐾</div>
+      <div class="feature-name">Можно с питомцами</div>
+      <div class="feature-desc">Рады всем животным</div>
+    </div>
+    <div class="feature reveal">
+      <div class="feature-icon">💳</div>
+      <div class="feature-name">Все способы оплаты</div>
+      <div class="feature-desc">Карта, СБП, наличные, QR</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div>
+          <span class="section-label">Контакты</span>
+          <h2 class="section-title">Найдите<br><em>нас</em></h2>
+        </div>
+        <div class="contact-block">
+          <h3>Адрес</h3>
+          <p>пр. Авиаконструкторов, 54<br>Санкт-Петербург</p>
+        </div>
+        <div class="contact-block">
+          <h3>Телефон</h3>
+          <a href="tel:+79516605151">+7 (951) 660-51-51</a>
+        </div>
+        <div class="contact-block">
+          <h3>Telegram</h3>
+          <a href="https://t.me/perviybarmodum" target="_blank">@perviybarmodum</a>
+        </div>
+        <div class="contact-block">
+          <h3>Режим работы</h3>
+          <div class="hours-grid">
+            <span class="day">Пн — Чт</span><span class="time">12:00 — 00:00</span>
+            <span class="day">Пт — Сб</span><span class="time">12:00 — 02:00</span>
+            <span class="day">Воскресенье</span><span class="time">12:00 — 00:00</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+          <div class="map-address">
+            пр. Авиаконструкторов, 54<br>
+            Санкт-Петербург, 197376<br>
+            <br>
+            ст. м. Комендантский проспект
+          </div>
+          <a href="https://yandex.ru/maps/-/CPHpbBi8" target="_blank" class="map-link">Открыть на карте →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo">First Bar</span>
+  <p>пр. Авиаконструкторов, 54 · Санкт-Петербург</p>
+  <ul class="footer-links">
+    <li><a href="https://t.me/firstbar1" target="_blank">Бронь</a></li>
+    <li><a href="https://t.me/perviybarmodum" target="_blank">Telegram</a></li>
+    <li><a href="tel:+79516605151">Звонок</a></li>
+  </ul>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
