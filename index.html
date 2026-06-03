@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Bar — Санкт-Петербург</title>
+<title>Первый Бар — Санкт-Петербург</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
@@ -41,16 +41,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 3rem;
-    background: rgba(14,12,10,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(14,12,10,0.88);
+    backdrop-filter: blur(14px);
     border-bottom: 0.5px solid var(--border);
   }
 
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 300;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     color: var(--gold);
     text-decoration: none;
     text-transform: uppercase;
@@ -65,7 +65,7 @@
   .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     transition: color 0.3s;
@@ -79,7 +79,7 @@
     color: var(--gold);
     padding: 0.5rem 1.25rem;
     font-family: 'Tenor Sans', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     cursor: pointer;
@@ -87,10 +87,7 @@
     transition: all 0.3s;
   }
 
-  .nav-cta:hover {
-    background: var(--gold);
-    color: var(--dark);
-  }
+  .nav-cta:hover { background: var(--gold); color: var(--dark); }
 
   /* HERO */
   .hero {
@@ -105,19 +102,39 @@
     overflow: hidden;
   }
 
+  .hero-logo-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(520px, 80vw);
+    opacity: 0.055;
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .hero-bg {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 50% 80%, rgba(201,169,110,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 20% 20%, rgba(201,169,110,0.04) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 50% at 50% 85%, rgba(201,169,110,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 15% 15%, rgba(201,169,110,0.04) 0%, transparent 60%);
+    z-index: 0;
   }
 
   .hero-lines {
     position: absolute;
     inset: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,169,110,0.03) 80px, rgba(201,169,110,0.03) 81px);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,169,110,0.025) 80px, rgba(201,169,110,0.025) 81px);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-badge {
@@ -126,38 +143,32 @@
     gap: 0.5rem;
     border: 0.5px solid var(--border);
     padding: 0.35rem 1rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 2rem;
     animation: fadeUp 0.8s ease both;
   }
 
-  .hero-badge::before, .hero-badge::after {
-    content: '—';
-    opacity: 0.4;
-  }
+  .hero-badge::before, .hero-badge::after { content: '—'; opacity: 0.4; }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(4rem, 10vw, 8.5rem);
+    font-size: clamp(4.5rem, 11vw, 9rem);
     font-weight: 300;
-    line-height: 0.95;
+    line-height: 0.92;
     letter-spacing: -0.01em;
     color: var(--text);
     margin-bottom: 1rem;
     animation: fadeUp 0.8s 0.15s ease both;
   }
 
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .hero-title em { font-style: italic; color: var(--gold); }
 
   .hero-sub {
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 3.5rem;
@@ -178,7 +189,7 @@
     border: none;
     padding: 0.9rem 2.5rem;
     font-family: 'Tenor Sans', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
@@ -195,7 +206,7 @@
     border: 0.5px solid rgba(240,234,224,0.2);
     padding: 0.9rem 2.5rem;
     font-family: 'Tenor Sans', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
@@ -204,10 +215,7 @@
     display: inline-block;
   }
 
-  .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
   .hero-scroll {
     position: absolute;
@@ -218,19 +226,20 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    z-index: 1;
     animation: fadeUp 0.8s 0.7s ease both;
   }
 
   .hero-scroll span {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--text-muted);
   }
 
   .scroll-line {
     width: 0.5px;
-    height: 40px;
+    height: 38px;
     background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollPulse 2s infinite;
   }
@@ -242,13 +251,11 @@
     border-bottom: 0.5px solid var(--border);
     padding: 1rem;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
   }
-
-  .offer-banner strong { font-weight: 400; }
 
   /* SECTION BASE */
   section {
@@ -258,7 +265,7 @@
   }
 
   .section-label {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--gold);
@@ -275,10 +282,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .section-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .section-title em { font-style: italic; color: var(--gold); }
 
   .divider {
     width: 40px;
@@ -324,7 +328,7 @@
   }
 
   .stat-label {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -335,10 +339,6 @@
     background: var(--dark-2);
     border-top: 0.5px solid var(--border);
     border-bottom: 0.5px solid var(--border);
-  }
-
-  .menu-section > section {
-    max-width: 1100px;
   }
 
   .menu-header {
@@ -379,8 +379,8 @@
   .menu-item:hover::before { transform: scaleX(1); }
 
   .menu-cat {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
@@ -394,11 +394,7 @@
     margin-bottom: 0.25rem;
   }
 
-  .menu-price {
-    color: var(--gold);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-  }
+  .menu-price { color: var(--gold); font-size: 0.85rem; }
 
   /* FEATURES */
   .features-grid {
@@ -408,35 +404,17 @@
     margin-top: 3rem;
   }
 
-  .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
+  .feature { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
 
   .feature-icon {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border: 0.5px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1rem;
   }
 
-  .feature-name {
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    color: var(--text);
-  }
-
-  .feature-desc {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
+  .feature-name { font-size: 0.8rem; letter-spacing: 0.08em; color: var(--text); }
+  .feature-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
 
   /* CONTACT */
   .contact-section {
@@ -453,7 +431,7 @@
   .contact-info { display: flex; flex-direction: column; gap: 2rem; }
 
   .contact-block h3 {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--gold);
@@ -476,14 +454,14 @@
   }
 
   .hours-grid .day {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-muted);
   }
 
   .hours-grid .time {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text);
     text-align: right;
   }
@@ -491,7 +469,6 @@
   .map-placeholder {
     background: var(--dark-3);
     border: 0.5px solid var(--border);
-    border-radius: 0;
     overflow: hidden;
     height: 300px;
     display: flex;
@@ -500,26 +477,22 @@
     justify-content: center;
     gap: 1rem;
     color: var(--text-muted);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     position: relative;
   }
 
   .map-pin {
-    width: 32px;
-    height: 32px;
+    width: 32px; height: 32px;
     border: 0.5px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.1rem;
   }
 
   .map-address {
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--text-muted);
     padding: 0 2rem;
     line-height: 1.8;
@@ -527,9 +500,8 @@
 
   .map-link {
     position: absolute;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    font-size: 0.65rem;
+    bottom: 1.25rem; right: 1.25rem;
+    font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
@@ -558,20 +530,12 @@
     color: var(--gold);
   }
 
-  footer p {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-  }
+  footer p { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--text-muted); }
 
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-  }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
 
   .footer-links a {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -598,10 +562,7 @@
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* MOBILE */
   @media (max-width: 768px) {
@@ -617,7 +578,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">First Bar</a>
+  <a href="#" class="nav-logo">Первый Бар</a>
   <ul class="nav-links">
     <li><a href="#about">О баре</a></li>
     <li><a href="#menu">Меню</a></li>
@@ -630,13 +591,78 @@
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-lines"></div>
-  <div class="hero-badge">Санкт-Петербург</div>
-  <h1 class="hero-title">First<br><em>Bar</em></h1>
-  <p class="hero-sub">Бар · Кальяны · Ресторан</p>
-  <div class="hero-actions">
-    <a href="https://t.me/firstbar1" target="_blank" class="btn-primary">Забронировать стол</a>
-    <a href="#menu" class="btn-outline">Смотреть меню</a>
+
+  <!-- Логотип: колонна с факелом, точное воспроизведение -->
+  <svg class="hero-logo-bg" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- === ФАКЕЛ СВЕРХУ === -->
+    <!-- Стержень факела -->
+    <line x1="143" y1="155" x2="143" y2="195" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="150" y1="155" x2="150" y2="195" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="157" y1="155" x2="157" y2="195" stroke="#C9A96E" stroke-width="2"/>
+
+    <!-- Пламя — центральный язык -->
+    <path d="M150 155 C147 142 138 128 142 110 C145 97 150 88 150 78
+             C150 88 155 97 158 110 C162 128 153 142 150 155Z"
+          stroke="#C9A96E" stroke-width="1.8" fill="none"/>
+    <!-- Левый язык пламени -->
+    <path d="M143 148 C138 133 130 120 134 103 C137 92 143 85 143 78"
+          stroke="#C9A96E" stroke-width="1.3" fill="none"/>
+    <!-- Правый язык пламени -->
+    <path d="M157 148 C162 133 170 120 166 103 C163 92 157 85 157 78"
+          stroke="#C9A96E" stroke-width="1.3" fill="none"/>
+
+    <!-- Большой завиток влево (из логотипа — широкий изгиб влево-вверх) -->
+    <path d="M143 120 C128 112 108 108 100 95 C92 82 100 68 112 72 C124 76 122 90 112 92 C104 94 100 86 106 82"
+          stroke="#C9A96E" stroke-width="1.6" fill="none"/>
+    <!-- Маленький завиток вправо -->
+    <path d="M157 115 C168 108 178 112 176 122 C174 130 164 130 162 123 C160 117 166 114 170 118"
+          stroke="#C9A96E" stroke-width="1.4" fill="none"/>
+    <!-- Дополнительный завиток правее-выше -->
+    <path d="M160 105 C172 96 182 98 180 108 C178 116 170 115 169 109"
+          stroke="#C9A96E" stroke-width="1.2" fill="none"/>
+
+    <!-- === ВЕРХНЯЯ ЧАСТЬ КОЛОННЫ === -->
+    <!-- Капитель верх — горизонтальная линия -->
+    <line x1="118" y1="196" x2="182" y2="196" stroke="#C9A96E" stroke-width="1.8"/>
+    <!-- Капитель низ — чуть шире -->
+    <line x1="114" y1="204" x2="186" y2="204" stroke="#C9A96E" stroke-width="1.8"/>
+
+    <!-- Тело колонны верх (3 линии) -->
+    <line x1="143" y1="204" x2="143" y2="290" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="150" y1="204" x2="150" y2="290" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="157" y1="204" x2="157" y2="290" stroke="#C9A96E" stroke-width="2"/>
+
+    <!-- База верхней колонны -->
+    <line x1="114" y1="290" x2="186" y2="290" stroke="#C9A96E" stroke-width="1.8"/>
+    <line x1="118" y1="298" x2="182" y2="298" stroke="#C9A96E" stroke-width="1.8"/>
+
+    <!-- === НИЖНЯЯ ЧАСТЬ КОЛОННЫ === -->
+    <!-- Капитель низ -->
+    <line x1="114" y1="318" x2="186" y2="318" stroke="#C9A96E" stroke-width="1.8"/>
+    <line x1="118" y1="326" x2="182" y2="326" stroke="#C9A96E" stroke-width="1.8"/>
+
+    <!-- Тело колонны низ (3 линии) -->
+    <line x1="143" y1="326" x2="143" y2="400" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="150" y1="326" x2="150" y2="400" stroke="#C9A96E" stroke-width="2"/>
+    <line x1="157" y1="326" x2="157" y2="400" stroke="#C9A96E" stroke-width="2"/>
+
+    <!-- База колонны — расширяющаяся к низу -->
+    <path d="M143 400 C138 408 118 418 100 422" stroke="#C9A96E" stroke-width="2" fill="none"/>
+    <path d="M157 400 C162 408 182 418 200 422" stroke="#C9A96E" stroke-width="2" fill="none"/>
+    <!-- Горизонталь основания -->
+    <line x1="88" y1="422" x2="212" y2="422" stroke="#C9A96E" stroke-width="2"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">Санкт-Петербург</div>
+    <h1 class="hero-title">Первый<br><em>Бар</em></h1>
+    <p class="hero-sub">Бар · Кальяны · Ресторан</p>
+    <div class="hero-actions">
+      <a href="https://t.me/firstbar1" target="_blank" class="btn-primary">Забронировать стол</a>
+      <a href="#menu" class="btn-outline">Смотреть меню</a>
+    </div>
   </div>
+
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <span>Scroll</span>
@@ -655,7 +681,7 @@
       <span class="section-label">О нас</span>
       <h2 class="section-title">Место, где<br>приятно <em>бывать</em></h2>
       <div class="divider"></div>
-      <p>First Bar — уютное заведение в Приморском районе Санкт-Петербурга. Стильный интерьер, внимательный персонал и атмосфера, в которой хочется оставаться подольше.</p>
+      <p>Первый Бар — уютное заведение в Приморском районе Санкт-Петербурга. Стильный интерьер, внимательный персонал и атмосфера, в которой хочется оставаться подольше.</p>
       <p>Авторские коктейли, насыщенные кальяны, итальянская и европейская кухня. Идеально для встречи с друзьями, романтического вечера или дня рождения.</p>
       <a href="https://t.me/perviybarmodum" target="_blank" class="btn-outline" style="margin-top:1.5rem; display:inline-block;">Telegram-канал</a>
     </div>
@@ -691,56 +717,16 @@
       <a href="https://yandex.com/maps/org/first_bar/199489915910/menu/" target="_blank" class="btn-outline">Полное меню →</a>
     </div>
     <div class="menu-grid">
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Эротический шторм</div>
-        <div class="menu-price">690 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Пиковая дама</div>
-        <div class="menu-price">690 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Pornstar</div>
-        <div class="menu-price">690 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Барби</div>
-        <div class="menu-price">690 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Белая леди</div>
-        <div class="menu-price">590 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Коктейль</div>
-        <div class="menu-name">Виски Сауэр</div>
-        <div class="menu-price">590 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Напитки</div>
-        <div class="menu-name">Просекко</div>
-        <div class="menu-price">590 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Напитки</div>
-        <div class="menu-name">Авторский чай</div>
-        <div class="menu-price">490 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Напитки</div>
-        <div class="menu-name">Латте</div>
-        <div class="menu-price">340 ₽</div>
-      </div>
-      <div class="menu-item reveal">
-        <div class="menu-cat">Кухня</div>
-        <div class="menu-name">Борщ</div>
-        <div class="menu-price">570 ₽</div>
-      </div>
+      <div class="menu-item reveal"><div class="menu-cat">Коктейль</div><div class="menu-name">Порнстар</div><div class="menu-price">690 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Коктейль</div><div class="menu-name">Кловер клаб</div><div class="menu-price">590 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Коктейль</div><div class="menu-name">Пина Колада</div><div class="menu-price">690 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Салат</div><div class="menu-name">Нисуаз</div><div class="menu-price">690 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Поке</div><div class="menu-name">С лососем</div><div class="menu-price">790 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Закуска</div><div class="menu-name">Тартар из мраморной говядины</div><div class="menu-price">790 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Паста</div><div class="menu-name">Фетучини с тигровыми креветками</div><div class="menu-price">690 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Пицца</div><div class="menu-name">Пепперони</div><div class="menu-price">690 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Горячее</div><div class="menu-name">Тихоокеанский кальмар</div><div class="menu-price">790 ₽</div></div>
+      <div class="menu-item reveal"><div class="menu-cat">Стритфуд</div><div class="menu-name">Бургер с мраморной говядиной</div><div class="menu-price">790 ₽</div></div>
     </div>
   </section>
 </div>
@@ -752,36 +738,12 @@
     <h2 class="section-title">Всё для<br><em>комфорта</em></h2>
   </div>
   <div class="features-grid">
-    <div class="feature reveal">
-      <div class="feature-icon">🍸</div>
-      <div class="feature-name">Авторские коктейли</div>
-      <div class="feature-desc">Собственные рецепты бара</div>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">💨</div>
-      <div class="feature-name">Кальяны</div>
-      <div class="feature-desc">Насыщенный вкус и плотный дым</div>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">🌿</div>
-      <div class="feature-name">Летняя терраса</div>
-      <div class="feature-desc">Открытая площадка в теплое время</div>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">📺</div>
-      <div class="feature-name">Спортивные трансляции</div>
-      <div class="feature-desc">Смотрим матчи вместе</div>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">🐾</div>
-      <div class="feature-name">Можно с питомцами</div>
-      <div class="feature-desc">Рады всем животным</div>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">💳</div>
-      <div class="feature-name">Все способы оплаты</div>
-      <div class="feature-desc">Карта, СБП, наличные, QR</div>
-    </div>
+    <div class="feature reveal"><div class="feature-icon">🍸</div><div class="feature-name">Авторские коктейли</div><div class="feature-desc">Собственные рецепты бара</div></div>
+    <div class="feature reveal"><div class="feature-icon">💨</div><div class="feature-name">Кальяны</div><div class="feature-desc">Насыщенный вкус и плотный дым</div></div>
+    <div class="feature reveal"><div class="feature-icon">🌿</div><div class="feature-name">Летняя терраса</div><div class="feature-desc">Открытая площадка в теплое время</div></div>
+    <div class="feature reveal"><div class="feature-icon">📺</div><div class="feature-name">Спортивные трансляции</div><div class="feature-desc">Смотрим матчи вместе</div></div>
+    <div class="feature reveal"><div class="feature-icon">🐾</div><div class="feature-name">Можно с питомцами</div><div class="feature-desc">Рады всем животным</div></div>
+    <div class="feature reveal"><div class="feature-icon">💳</div><div class="feature-name">Все способы оплаты</div><div class="feature-desc">Карта, СБП, наличные, QR</div></div>
   </div>
 </section>
 
@@ -810,8 +772,7 @@
           <h3>Режим работы</h3>
           <div class="hours-grid">
             <span class="day">Пн — Чт</span><span class="time">12:00 — 00:00</span>
-            <span class="day">Пт — Сб</span><span class="time">12:00 — 02:00</span>
-            <span class="day">Воскресенье</span><span class="time">12:00 — 00:00</span>
+            <span class="day">Пт — Вс</span><span class="time">13:00 — 00:00</span>
           </div>
         </div>
       </div>
@@ -820,9 +781,8 @@
           <div class="map-pin">📍</div>
           <div class="map-address">
             пр. Авиаконструкторов, 54<br>
-            Санкт-Петербург, 197376<br>
-            <br>
-            ст. м. Комендантский проспект
+            Санкт-Петербург, 197376<br><br>
+            м. Комендантский проспект
           </div>
           <a href="https://yandex.ru/maps/-/CPHpbBi8" target="_blank" class="map-link">Открыть на карте →</a>
         </div>
@@ -833,7 +793,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="logo">First Bar</span>
+  <span class="logo">Первый Бар</span>
   <p>пр. Авиаконструкторов, 54 · Санкт-Петербург</p>
   <ul class="footer-links">
     <li><a href="https://t.me/firstbar1" target="_blank">Бронь</a></li>
@@ -845,13 +805,9 @@
 <script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
-
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
